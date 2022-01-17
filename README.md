@@ -88,7 +88,7 @@ A `python` solution based on pandas/dask runs:
 
 |   | pros| cons |
 |---|---|---|
-|bash|1. fast <br> 2. infrastructure efficient  | 1. not readable <br>|
+|bash|1. fast <br> 2. infrastructure efficient  | 1. not readable <br> 2. sort issue|
 |python dask|1. readable <br> 2. easy to maintain | 1. hard to adjust for the infrastrucure <br> 2. slow |
 
 
