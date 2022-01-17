@@ -1,0 +1,9 @@
+field	label
+1	Sngl1000bp
+2	Freq10000bp
+3	Rare10000bp
+4	Sngl10000bp
+5	dbscSNV-ada_score
+6	dbscSNV-rf_score
+7	RawScore
+8	CADD-PHRED
