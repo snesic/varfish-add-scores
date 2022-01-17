@@ -1,6 +1,6 @@
 # Add new scores to VarFish
 
-VarFish allows import of any variant score so that a user can filter or sort variants by that score. A ready-to-use table of CADD (and other) scores is already provided for download . Here, we describe how to generate and import scores to VarFish.
+VarFish allows import of any variant score so that a user can filter or sort variants. A ready-to-use table of CADD (and other) scores is already provided for download ..... Here, we describe how to generate and import scores to VarFish.
 
 ## Generate score
 
@@ -8,8 +8,8 @@ We use REVEL score as an example. VarFish requires two TSV files where one conta
 
 |  release | chromosome  |  start | end  | bin  |reference|alternative|anno_data|
 |---|---|---|---|---|---|---|---|
-GRCh37 | X|100075460|100075460|1348|T|A|0.883|
-GRCh37 | X|100515545|100515545|1351|C|G|0.123|
+GRCh37 | X|100075460|100075460|1348|T|A|[0.883]|
+GRCh37 | X|100515545|100515545|1351|C|G|[0.123]|
 
 and the other contains information on the values from `anno_data`. Note that the values are comma-separated so that each value correspond to the name from the second file:
 
@@ -21,15 +21,12 @@ Dummy example files are given in `test_data` folder. They are also used to test 
 
 
 
-
-
-
 ## Join scores
 
 
 ### Input
 
-In order to include scores that come from different sources one would have to create two joined TSV files following the structure defined above. In our dummy test folder we have two files with scores. The first one, `initial_extra_anno_field.tsv` mitigates scores provided by `bihealth`:
+In order to include scores that come from different sources one would have to merge TSV files following the structure defined above (two tables). In our dummy test folder we have two file pairs with scores. The first one, `initial_extra_anno_field.tsv` mitigates scores provided by `bihealth`:
 
 ```
 # cat test_data/initial_extra_anno.tsv
@@ -54,7 +51,7 @@ field	label
 8	CADD-PHRED   
 ```
 
-The second file is mitigating REVEL score  
+The second file pair is mitigating REVEL score  
 ```
 # cat test_data/new_extra_anno.tsv
 [...]
@@ -70,7 +67,7 @@ field	label
 
 ### Usage
 
-The main issue here is the size of the files we need to merge. The size of the scores provided by `bihealth` is approx. `50GB` while `REVEL` is around `3GB`. A `bash` solution is:
+The main issue here is the size of the files we need to merge. The file from `bihealth` is approx. `50GB` while `REVEL` is around `3GB`. A `bash` solution is:
 
 ```
 # ./join_scores.tsv test_data/initial_extra_anno.tsv \
@@ -89,7 +86,7 @@ A `python` solution based on pandas/dask runs:
 ```
 #### Pros & cons
 
-|  solution | pros| cons |
+|   | pros| cons |
 |---|---|---|
 |bash|1. fast <br> 2. infrastructure efficient  | 1. not readable <br>|
 |python dask|1. readable <br> 2. easy to maintain | 1. hard to adjust for the infrastrucure <br> 2. slow |
