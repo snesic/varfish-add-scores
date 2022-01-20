@@ -88,8 +88,8 @@ A `python` solution based on pandas/dask runs:
 
 |   | pros| cons |
 |---|---|---|
-|bash|1. fast <br> 2. infrastructure efficient  | 1. not readable <br> 2. sort issue|
-|python dask|1. readable <br> 2. easy to maintain | 1. hard to adjust for the infrastrucure <br> 2. slow |
+|bash|1. fast (1h to join REVEL and CADD) <br> 2. infrastructure efficient  | 1. not readable <br> 2. sort issue|
+|python dask|1. readable <br> 2. easy to maintain | 1. hard to adjust for the infrastrucure <br> 2. slow (33h to join REVEL and CADD)|
 
 
 ### Results
@@ -120,3 +120,8 @@ field	label
 
 1. Check if the number of unique lines excluding `extra_anno` files matches between the new file and the concatinated input files.
 2. Check if the number of values in each line corresponds to the number of fields in the output field file (ExtraAnnoField.tsv).
+
+
+## Import to VarFish
+
+Once the files are correctly created they could be imported following the instructions from [here](https://varfish.readthedocs.io/en/latest/developer_database.html#database-import).
